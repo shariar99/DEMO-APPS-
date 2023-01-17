@@ -115,7 +115,7 @@
         app:layout_constraintTop_toBottomOf="@+id/inputPassword" />
 
     <TextView
-        android:id="@+id/forgotPassword"
+        android:id="@+id/backlogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
