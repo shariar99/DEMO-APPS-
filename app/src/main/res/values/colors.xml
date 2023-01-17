@@ -9,7 +9,6 @@
     <color name="white">#FFFFFFFF</color>
 
     // custom color provide
-
     <color name="primary_bg">#F6F1FE</color>
     <color name="cardview_bg">#FEFEFE</color>
     <color name="quantity_bg">#FFCCE4</color>

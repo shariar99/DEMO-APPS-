@@ -1,8 +1,10 @@
-package com.shariar99.demoapps;
+package com.shariar99.demoapps.View.Ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.shariar99.demoapps.R;
 
 public class MainActivity extends AppCompatActivity {
 
