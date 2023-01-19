@@ -9,6 +9,8 @@ import androidx.room.Room;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +28,7 @@ import com.shariar99.demoapps.Service.Network.AppDatabase;
 import com.shariar99.demoapps.Service.Network.ProductDao;
 import com.shariar99.demoapps.Service.Network.RetrofitInstance;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -50,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         searchBox = findViewById(R.id.search_box);
         searchBtn = findViewById(R.id.search_btn);
         bagBtn = findViewById(R.id.bag_btn);
+
 
         RetrofitInstance.getInstance().apiServices.getAllProductList().enqueue(new Callback<List<ProductModel>>() {
             @Override
@@ -81,7 +85,54 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        searchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String searchTerm = searchBox.getText().toString().trim();
+                if (!searchTerm.isEmpty()) {
+                    // Perform the search using the searchTerm
+                    // For example, you could call a method that filters the productModelList based on the searchTerm
+                    filterProductList(searchTerm);
+                } else {
+                    Toast.makeText(MainActivity.this, "Please enter a search name", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        searchBox.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count)
+            {
+                if (start == 0)
+                {
+                    recyclerView.setAdapter(new ProductAdapter(MainActivity.this,productModelList));
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
+
+    }
+
+    private void filterProductList(String searchTerm) {
+        // Use the searchTerm to filter the productModelList
+        // and update the RecyclerView with the filtered list
+        List<ProductModel> filteredList = new ArrayList<>();
+        for (ProductModel product : productModelList) {
+            if (product.getTitle().toLowerCase().contains(searchTerm.toLowerCase())) {
+                filteredList.add(product);
+            }
+        }
+        recyclerView.setAdapter(new ProductAdapter(MainActivity.this, filteredList));
     }
 
     public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.myViewHolder> {
@@ -126,7 +177,6 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             });
-
 
             holder.addCard.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -176,9 +226,9 @@ public class MainActivity extends AppCompatActivity {
                     if (x >= 1) {
                         x--;
                     }
-
                     else {
                         holder.product_count_layout.setVisibility(View.GONE);
+
                     }
                     if (x<10)
                     {
@@ -187,6 +237,7 @@ public class MainActivity extends AppCompatActivity {
                     holder.productCount.setText(String.valueOf(x));
                 }
             });
+
         }
 
         @Override
