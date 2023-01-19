@@ -151,6 +151,10 @@ public class MainActivity extends AppCompatActivity {
                     if (x < 10) {
                         x++;
                     }
+                    if (x>9)
+                    {
+                        holder.stock.setVisibility(View.VISIBLE);
+                    }
                     holder.productCount.setText(String.valueOf(x));
                 }
             });
@@ -162,7 +166,12 @@ public class MainActivity extends AppCompatActivity {
                     int x = Integer.parseInt(holder.productCount.getText().toString());
                     if (x >= 1) {
                         x--;
-                    } else {
+                    }
+                    if (x<10)
+                    {
+                        holder.stock.setVisibility(View.GONE);
+                    }
+                    else {
                         holder.product_count_layout.setVisibility(View.GONE);
                     }
                     holder.productCount.setText(String.valueOf(x));
@@ -189,6 +198,7 @@ public class MainActivity extends AppCompatActivity {
             TextView productCount;
             TextView addCard;
             TextView id;
+            TextView stock;
             RelativeLayout product, product_count_layout;
 
             public myViewHolder(@NonNull View itemView) {
@@ -205,6 +215,7 @@ public class MainActivity extends AppCompatActivity {
                 product_count_layout = itemView.findViewById(R.id.product_count_layout);
                 addCard = itemView.findViewById(R.id.add_card);
                 id = itemView.findViewById(R.id.id);
+                stock = itemView.findViewById(R.id.stock);
 
 
             }
