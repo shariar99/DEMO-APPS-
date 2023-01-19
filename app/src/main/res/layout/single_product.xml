@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="160dp"
+    android:layout_width="match_parent"
     android:layout_height="265dp"
     android:layout_margin="8dp"
     android:id="@+id/product">
@@ -11,6 +11,19 @@
         android:background="@drawable/bg_item"
         android:orientation="vertical"
         android:padding="5dp">
+
+        <TextView
+            android:id="@+id/id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="5dp"
+            android:visibility="gone"
+            android:background="@drawable/bg_item_count"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/purple_500"
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/stock"
@@ -36,8 +49,8 @@
             android:id="@+id/product_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLength="20"
             android:gravity="center"
+            android:maxLength="20"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="Lays Classic Family Chips"
@@ -97,9 +110,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
+                android:maxLength="10"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:maxLength="10"
                 android:text="Food"
                 android:textColor="@color/purple_500"
                 android:textSize="14dp"
@@ -147,13 +160,14 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:id="@+id/add_card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:text="িস"
+                android:text="পিস"
                 android:textColor="@color/purple_500"
                 android:textSize="14sp" />
 

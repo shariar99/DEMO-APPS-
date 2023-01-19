@@ -3,12 +3,12 @@ public class ProductModel {
 
     Integer id;
     String title;
-    Double price;
+    double price;
     String description;
     String category;
     String image;
 
-    public ProductModel(Integer id, String title, Double price, String description, String category, String image) {
+    public ProductModel(Integer id, String title, double price, String description, String category, String image) {
         this.id = id;
         this.title = title;
         this.price = price;
@@ -33,11 +33,11 @@ public class ProductModel {
         this.title = title;
     }
 
-    public Double getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -64,11 +64,6 @@ public class ProductModel {
     public void setImage(String image) {
         this.image = image;
     }
-
-
-
-
-
 }
 
 

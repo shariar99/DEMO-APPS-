@@ -4,20 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.Ui.MainActivity">
+    tools:context=".View.Ui.MainActivity"
+    android:background="#F6F1FE">
 
-    <EditText
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:hint="Search"/>
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp">
+
+        <ImageView
+            android:id="@+id/bag_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="center"
+            android:src="@drawable/bag" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="46dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp">
+        <EditText
+            android:id="@+id/search_box"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="কাঙ্ক্ষিত পণ্যটি খুঁজুন"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:background="@drawable/bg_item"
+            />
+        <ImageView
+            android:id="@+id/search_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/search_icon"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="center"/>
+
+    </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/primary_bg"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginTop="90dp"
+        android:background="@color/primary_bg" />
 
 
 </RelativeLayout>
