@@ -114,10 +114,19 @@ public class MainActivity extends AppCompatActivity {
             holder.product.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    holder.product_count_layout.setVisibility(View.VISIBLE);
+
+                    if (holder.product_count_layout.getVisibility() == View.GONE)
+                    {
+                        holder.product_count_layout.setVisibility(View.VISIBLE);
+                    }
+                    else
+                    {
+                        holder.product_count_layout.setVisibility(View.GONE);
+                    }
 
                 }
             });
+
 
             holder.addCard.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -167,12 +176,13 @@ public class MainActivity extends AppCompatActivity {
                     if (x >= 1) {
                         x--;
                     }
+
+                    else {
+                        holder.product_count_layout.setVisibility(View.GONE);
+                    }
                     if (x<10)
                     {
                         holder.stock.setVisibility(View.GONE);
-                    }
-                    else {
-                        holder.product_count_layout.setVisibility(View.GONE);
                     }
                     holder.productCount.setText(String.valueOf(x));
                 }
