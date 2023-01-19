@@ -85,18 +85,18 @@
 
         <RelativeLayout
             android:id="@+id/card_product_count_layout"
-            android:layout_width="30dp"
+            android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_marginStart="20dp"
             android:layout_marginTop="25dp"
             android:layout_marginBottom="25dp"
-            android:background="@drawable/bg_item_count"
-            android:padding="2dp">
+            android:background="@drawable/bg_item_count">
 
             <ImageView
                 android:id="@+id/card_delete_product"
-                android:layout_width="27dp"
-                android:layout_height="27dp"
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:layout_margin= "3dp"
                 android:layout_alignParentBottom="true"
                 android:src="@drawable/minus_icon" />
 
@@ -108,9 +108,9 @@
 
                 <TextView
                     android:id="@+id/card_product_count"
-                    android:layout_width="wrap_content"
+                    android:layout_width="40dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
+                    android:gravity="center_horizontal"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:text="1"
@@ -122,8 +122,9 @@
 
             <ImageView
                 android:id="@+id/card_add_product"
-                android:layout_width="27dp"
-                android:layout_height="27dp"
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:layout_margin= "3dp"
                 android:layout_alignParentTop="true"
                 android:src="@drawable/plus_icon" />
 

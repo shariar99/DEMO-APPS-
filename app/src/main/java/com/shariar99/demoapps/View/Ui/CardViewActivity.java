@@ -53,7 +53,7 @@ public class CardViewActivity extends AppCompatActivity {
 
         List<Product> products=productDao.getallproduct();
 
-        BagAdapter adapter=new BagAdapter(products);
+        BagAdapter adapter=new BagAdapter(CardViewActivity.this, products);
         recview.setAdapter(adapter);
 
 

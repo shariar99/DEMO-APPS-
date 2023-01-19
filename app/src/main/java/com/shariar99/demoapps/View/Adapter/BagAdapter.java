@@ -13,10 +13,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
+import com.bumptech.glide.Glide;
 import com.shariar99.demoapps.R;
 import com.shariar99.demoapps.Service.Model.Product;
 import com.shariar99.demoapps.Service.Network.AppDatabase;
 import com.shariar99.demoapps.Service.Network.ProductDao;
+import com.shariar99.demoapps.View.Ui.CardViewActivity;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -24,9 +26,11 @@ import java.util.List;
 
 public class BagAdapter  extends RecyclerView.Adapter<BagAdapter.myviewholder>
 {
+    CardViewActivity cardViewActivity;
     List<Product> products;
     TextView rateview;
-    public BagAdapter(List<Product> products) {
+    public BagAdapter(CardViewActivity cardViewActivity, List<Product> products) {
+        this.cardViewActivity = cardViewActivity;
         this.products = products;
     }
 
@@ -44,6 +48,7 @@ public class BagAdapter  extends RecyclerView.Adapter<BagAdapter.myviewholder>
         holder.name.setText(products.get(position).getPname());
         holder.price.setText(String.valueOf(products.get(position).getPrice()));
         holder.count.setText(String.valueOf(products.get(position).getQnt()));
+        Glide.with(cardViewActivity).load(products.get(position).getpImage()).into(holder.pImageView);
 
         /**holder.addProduct.setOnClickListener(new View.OnClickListener() {
             @Override
