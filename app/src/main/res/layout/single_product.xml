@@ -99,6 +99,7 @@
                 android:layout_gravity="start"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
+                android:maxLength="10"
                 android:text="Food"
                 android:textColor="@color/purple_500"
                 android:textSize="14dp"
