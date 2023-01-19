@@ -46,23 +46,37 @@ public class BagAdapter  extends RecyclerView.Adapter<BagAdapter.myviewholder>
     public void onBindViewHolder(@NonNull @NotNull BagAdapter.myviewholder holder, @SuppressLint("RecyclerView") int position) {
         holder.id.setText(String.valueOf(products.get(position).getPid()));
         holder.name.setText(products.get(position).getPname());
-        holder.price.setText(String.valueOf(products.get(position).getPrice()));
+        holder.price.setText(String.valueOf("TK "+products.get(position).getPrice()));
         holder.count.setText(String.valueOf(products.get(position).getQnt()));
         Glide.with(cardViewActivity).load(products.get(position).getpImage()).into(holder.pImageView);
-
-        /**holder.addProduct.setOnClickListener(new View.OnClickListener() {
+        double quantityprice = products.get(position).getPrice()*products.get(position).getQnt();
+        holder.priceAll.setText(String.valueOf("TK "+quantityprice));
+        holder.addProduct.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
-            public void onClick(View view) {
-                AppDatabase db = Room.databaseBuilder(holder.id.getContext(),
-                        AppDatabase.class, "cart_db").allowMainThreadQueries().build();
-                ProductDao productDao = db.ProductDao();
+            public void onClick(View v) {
+                int x = Integer.parseInt(holder.count.getText().toString());
 
-                productDao.deleteById(products.get(position).getPid());
-                products.remove(position);
-                notifyItemRemoved(position);
-                updateprice();
+                if (x < 10) {
+                    x++;
+                    holder.priceAll.setText(String.valueOf("TK "+products.get(position).getPrice()*x));
+                }
+                holder.count.setText(String.valueOf(x));
             }
-        });*/
+        });
+
+        holder.deleteProduct.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onClick(View v) {
+                int x = Integer.parseInt(holder.count.getText().toString());
+                if (x >= 1) {
+                    x--;
+                    holder.priceAll.setText(String.valueOf("TK "+products.get(position).getPrice()*x));
+                }
+                holder.count.setText(String.valueOf(x));
+            }
+        });
     }
 
     @Override
@@ -91,4 +105,3 @@ public class BagAdapter  extends RecyclerView.Adapter<BagAdapter.myviewholder>
 
 
 }
-
